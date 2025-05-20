@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>TOKO ELIYA</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+          <script src="https://cdn.tailwindcss.com"></script>
+          <!-- Tambahkan di head jika belum -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- SweetAlert2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="assets/fontawesome-free-6.5.2-web/css/all.min.css"/>
+        <style>
+/* CSS for search section */
+.testimonial {
+    padding: 40px 20px;
+    background-color: #f8f9fa; /* Warna latar belakang testimonial */
+    border-radius: 5px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+}
+
+.testimonial img {
+    width: 50%;
+    height: 50%;
+    border-radius: 50%; /* Membuat gambar bulat */
+    margin-bottom: 20px;
+    object-fit: cover; /* Memastikan gambar tidak terdistorsi */
+}
+
+.testimonial .name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.testimonial .stars {
+    margin-bottom: 20px;
+}
+
+.testimonial .stars i {
+    font-size: 20px;
+}
+
+.testimonial p {
+    font-style: italic;
+    color: #555;
+}
+
+/* CSS for search section */
+.search{
+    padding: 12px 15px;
+    background-color: #fff;
+    border:1px solid #ccc;
+    text-align: center;
+}
+
+.search input[type=text]{
+    width: 60%;
+    padding: 10px
+
+}
+.search input[type=submit]{
+    padding: 12px 15px;
+    background-color: gray;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+/* CSS for kategori section */
+.section {
+    padding: 20px ;
+    background-color: #f8f9fa; /* Warna background */
+}
+
+.section-heading {
+    margin-bottom: 30px;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #333; /* Warna teks */
+}
+
+.col-md-3 {
+    text-align: center;
+    margin-bottom: 30px;
+    float: left;
+    box-sizing: border-box;
+}
+
+.col-md-3 img {
+    border-radius: 50%; /* Membuat gambar bulat */
+    border: 2px solid #333; /* Warna border gambar */
+    padding: 5px; /* Jarak antara border dan gambar */
+}
+
+.col-md-3 p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333; /* Warna teks */
+}
+
+/* Hover effect */
+.col-md-3:hover img {
+    transform: scale(1.1); /* Memperbesar gambar saat dihover */
+}
+
+.col-md-4:hover p {
+    color: #dc3545; /* Warna teks berubah saat dihover */
+}
+/* CSS for barang section */
+.section {
+    padding: 50px 0;
+    background-color: #f8f9fa; /* Warna background */
+}
+
+.section-heading {
+    margin-bottom: 30px;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #333; /* Warna teks */
+}
+
+.col-md-4 {
+    text-align: center;
+    margin-bottom: 30px;
+    float: left;
+    border:1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.col-md-4 img {
+    width: 100%;
+    border-radius: 5px; /* Membuat sudut gambar sedikit melengkung */
+    border: 1px solid #ccc; /* Warna border gambar */
+    padding: 5px; /* Jarak antara border dan gambar */
+}
+
+.col-md-4 p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333; /* Warna teks */
+}
+
+/* Hover effect */
+.col-md-4:hover{
+    box-shadow: 0 0 3px #999;
+}
+.col-md-4:hover img {
+    transform: scale(1.1); /* Memperbesar gambar saat dihover */
+}
+
+.col-md-4:hover p {
+    color: #dc3545; /* Warna teks berubah saat dihover */
+}
+.footer {
+    background-color: #333; /* Warna latar belakang */
+    color: white; /* Warna teks */
+    padding: 20px 0; /* Padding atas dan bawah */
+    text-align: center; /* Teks rata tengah */
+}
+
+.footer a {
+    color: white; /* Warna teks link */
+    text-decoration: none; /* Hapus dekorasi link */
+    margin: 0 10px; /* Jarak antara ikon sosial */
+}
+
+.footer a:hover {
+    color: #ddd; /* Warna teks link saat dihover */
+}
+
+</style>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+<nav class="bg-gray-900 text-white fixed top-0 left-0 w-full z-50">
+  <div class="container mx-auto flex items-center justify-between px-4 py-3">
+    <!-- Logo -->
+    <a href="#page-top" class="text-2xl font-bold">elshop</a>
+
+    <!-- Toggle Button (mobile) -->
+    <button id="navToggleBtn" class="lg:hidden focus:outline-none">
+      <i class="fas fa-bars text-white text-2xl"></i>
+    </button>
+
+    <!-- Menu -->
+    <div id="navbarResponsive" class="hidden flex-col space-y-2 lg:flex lg:flex-row lg:space-y-0 lg:space-x-6 mt-3 lg:mt-0 lg:items-center bg-gray-900 lg:bg-transparent absolute lg:static top-full left-0 w-full lg:w-auto px-4 lg:px-0 py-3 lg:py-0">
+      <a href="#profil" class="block hover:text-yellow-400">Profil</a>
+      <a href="#layanan" class="block hover:text-yellow-400">Layanan</a>
+      <a href="#kategori" class="block hover:text-yellow-400">Kategori</a>
+      <a href="#barang" class="block hover:text-yellow-400">Barang</a>
+      <a href="#testimoni" class="block hover:text-yellow-400">Testimoni</a>
+      <a href="#contact" class="block hover:text-yellow-400">Contact</a>
+    </div>
+  </div>
+</nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Selamat datang</div>
+                <div class="masthead-heading text-uppercase">ELIYA'S WARDROBE SHOP</div>
+            </div>
+        </header>
+          <!-- Profil -->
+<section class="page-section py-16 bg-white" id="profil">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-10">
+            <h2 class="text-4xl font-bold text-gray-800 uppercase border-b-4 inline-block border-yellow-500 pb-2">Profil</h2>
+        </div>
+        <div class="max-w-2xl mx-auto bg-white shadow-xl rounded-2xl p-8">
+            <div class="space-y-4 text-left text-gray-700">
+                <p><span class="font-semibold text-gray-800">Nama Toko:</span> <span class="text-lg">ELIYA'S WARDROBE SHOP</span></p>
+                <p><span class="font-semibold text-gray-800">Deskripsi:</span> Wardrobe shop adalah toko furniture yang berfokus pada produk lemari berkualitas tinggi. Kami menyediakan berbagai macam lemari yang dirancang dengan baik dan dibuat dengan bahan berkualitas untuk memenuhi kebutuhan penyimpanan Anda.</p>
+                <p><span class="font-semibold text-gray-800">Alamat:</span> Kp. Selagalih, Bogor</p>
+                <p><span class="font-semibold text-gray-800">Kontak:</span> 0895 3553 10172</p>
+                <p><span class="font-semibold text-gray-800">Jam Operasional:</span><br>
+                    <span class="ml-4 block">Senin - Sabtu: 08.00 - 18.00</span>
+                    <span class="ml-4 block">Minggu: Tutup</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Layanan -->
+<section id="layanan" class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">LAYANAN</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      
+      <!-- Card 1 -->
+      <div class="bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-100 hover:shadow-xl transition duration-300">
+        <div class="w-20 h-20 bg-yellow-400 rounded-full mx-auto flex items-center justify-center mb-6 shadow">
+          <i class="fas fa-tools text-white text-2xl"></i>
+        </div>
+        <h4 class="text-xl font-semibold text-gray-800 mb-2">Pemasangan dan Pemeliharaan</h4>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          Layanan pemasangan lemari di rumah atau kantor, termasuk perakitan, instalasi, dan perawatan sesuai keinginan pelanggan.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-100 hover:shadow-xl transition duration-300">
+        <div class="w-20 h-20 bg-yellow-400 rounded-full mx-auto flex items-center justify-center mb-6 shadow">
+          <i class="fas fa-truck text-white text-2xl"></i>
+        </div>
+        <h4 class="text-xl font-semibold text-gray-800 mb-2">Pengiriman dan Pemasangan</h4>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          Menyediakan layanan pengiriman dan pemasangan lemari agar langsung siap digunakan oleh pelanggan.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-100 hover:shadow-xl transition duration-300">
+        <div class="w-20 h-20 bg-yellow-400 rounded-full mx-auto flex items-center justify-center mb-6 shadow">
+          <i class="fas fa-shield-alt text-white text-2xl"></i>
+        </div>
+        <h4 class="text-xl font-semibold text-gray-800 mb-2">Jaminan Kualitas</h4>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          Setiap produk dilengkapi dengan garansi kerusakan atau cacat produksi yang berlaku setelah pembelian.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Barang -->
+<section class="page-section py-10 bg-gray-50" id="barang">
+    <!-- Kategori Filter -->
+    <div class="text-center mb-8">
+        <button class="filter-btn bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-5 py-2 rounded-full mx-2 transition" onclick="filterItems('all')">Semua</button>
+        <button class="filter-btn bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-5 py-2 rounded-full mx-2 transition" onclick="filterItems('kayu')">Lemari Kayu</button>
+        <button class="filter-btn bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-5 py-2 rounded-full mx-2 transition" onclick="filterItems('plastik')">Lemari Plastik</button>
+    </div>
+
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">Daftar Barang</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" id="barangList">
+            <!-- Kartu Barang -->
+            <div onclick="showModal('Lemari Kayu', 'asset/img/lemari1.jpeg', 'Rp 950.000', 'Lemari kayu jati solid berkualitas tinggi.')" class="barang-item kayu bg-white p-4 rounded-xl shadow hover:shadow-lg text-center transition cursor-pointer">
+                <img src="asset/img/lemari1.jpeg" alt="Lemari Kayu" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="font-semibold text-lg text-gray-800">Lemari Kayu</p>
+            </div>
+
+            <div onclick="showModal('lemari plastik', 'asset/img/lemari plastik1 (1).jpg', 'Rp 350.000', 'Lemari plastik kuat.')" class="barang-item kayu bg-white p-4 rounded-xl shadow hover:shadow-lg text-center transition cursor-pointer">
+                <img src="asset/img/lemari plastik1 (1).jpg" alt="Lemari Plastik" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="font-semibold text-lg text-gray-800">Lemari Plastik</p>
+            </div>
+
+            <div onclick="showModal('Lemari plastik', 'asset/img/lemari plastik1 (3).jpg', 'Rp 500.000', 'Lemari plastik awet dan kuat.')" class="barang-item kayu bg-white p-4 rounded-xl shadow hover:shadow-lg text-center transition cursor-pointer">
+                <img src="asset/img/lemari plastik1 (3).jpg" alt="Lemari Pakaian" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="font-semibold text-lg text-gray-800">Lemari Pakaian</p>
+            </div>
+
+            <div onclick="showModal('Lemari Kayu', 'asset/img/lemari plastik1 (2).jpg', 'Rp 1.000.000', 'Lemari kayu jati solid berkualitas tinggi.')" class="barang-item kayu bg-white p-4 rounded-xl shadow hover:shadow-lg text-center transition cursor-pointer">
+                <img src="asset/img/lemari plastik1 (2).jpg" alt="Lemari Serbaguna" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="font-semibold text-lg text-gray-800">Lemari Serbaguna</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- MODAL -->
+<div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-xl shadow-lg max-w-md w-full p-6 relative">
+        <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-400 hover:text-red-500 text-xl">&times;</button>
+        <img id="modalImage" src="" alt="Preview" class="w-full h-60 object-cover rounded mb-4">
+        <h3 id="modalTitle" class="text-xl font-bold mb-2 text-gray-800"></h3>
+        <p id="modalPrice" class="text-yellow-600 font-semibold text-lg mb-2"></p>
+        <p id="modalDesc" class="text-gray-600 text-sm mb-4"></p>
+        <a id="waLink" href="#" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full inline-block text-center">
+            <i class="fa-brands fa-whatsapp mr-2"></i>Hubungi via WhatsApp
+        </a>
+    </div>
+</div>
+<!-- Testimoni -->
+<section class="page-section bg-white py-12" id="testimoni">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 uppercase tracking-wide">Testimoni</h2>
+            <p class="text-gray-500 mt-2">Apa kata mereka tentang toko kami</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Testimoni 1 -->
+            <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition text-center">
+                <img src="asset/img/dit.jpg" alt="Dita" class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md">
+                <h4 class="text-lg font-semibold text-gray-800">Dita</h4>
+                <div class="stars text-yellow-400 text-sm my-2">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-600 text-sm">"Toko ini memiliki berbagai pilihan lemari yang sesuai dengan selera saya. Proses pembelian pun mudah dan nyaman. Sangat direkomendasikan!"</p>
+            </div>
+
+            <!-- Testimoni 2 -->
+            <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition text-center">
+                <img src="asset/img/jay2.jpg" alt="Park Jong Seong" class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md">
+                <h4 class="text-lg font-semibold text-gray-800">Park Jong Seong</h4>
+                <div class="stars text-yellow-400 text-sm my-2">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-600 text-sm">"Saya sangat puas dengan lemari yang saya beli. Kualitasnya sangat baik dan pelayanan dari tim juga ramah serta membantu."</p>
+            </div>
+
+            <!-- Testimoni 3 -->
+            <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition text-center">
+                <img src="asset/img/john.jpg" alt="Raffi Ahmad" class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md">
+                <h4 class="text-lg font-semibold text-gray-800">John</h4>
+                <div class="stars text-yellow-400 text-sm my-2">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-gray-600 text-sm">"Lemari yang saya beli di toko ini terbukti awet dan desainnya cantik. Ruangan jadi lebih rapi dan estetik!"</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- contact -->
+<section class="page-section" id="contact">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase">Contact Us</h2>
+      <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+    </div>
+    <form id="contactForm" method="POST" action="https://formspree.io/f/xpwdkbvn">
+      <div class="row align-items-stretch mb-5">
+        <div class="col-md-6">
+          <div class="form-group">
+            <input class="form-control" id="nama" name="nama" type="text" placeholder="Nama" required />
+            <div class="invalid-feedback">A name is required.</div>
+          </div>
+          <div class="form-group">
+            <input class="form-control" id="email" name="email" type="email" placeholder="Email" required />
+            <div class="invalid-feedback">An email is required.</div>
+            <div class="invalid-feedback">Email is not valid.</div>
+          </div>
+          <div class="form-group mb-md-0">
+            <input class="form-control" id="number" name="number" type="text" placeholder="Number" required />
+            <div class="invalid-feedback">A phone number is required.</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group form-group-textarea mb-md-0">
+            <textarea class="form-control" id="message" name="message" placeholder="Message" required></textarea>
+            <div class="invalid-feedback">A message is required.</div>
+          </div>
+        </div>
+      </div>
+      <div class="submit">
+        <button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Send Message</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- Footer-->
+<footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">&copy; 2024 ELIYA'S WORDROBE SHOP.</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                    <a href="https://www.instagram.com/elliya_13?igsh=MXVybWc4YnRhc3NzaQ=="><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@eliyanurarrahmadan?si=dMGUTwfryU8D3yP2"><i class="fab fa-youtube"></i></a>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Script -->
+<script>
+    function filterItems(kategori) {
+        const items = document.querySelectorAll('.barang-item');
+        items.forEach(item => {
+            item.style.display = (kategori === 'all' || item.classList.contains(kategori)) ? 'block' : 'none';
+        });
+    }
+
+    function cariBarang() {
+        const keyword = document.getElementById('searchInput').value.toLowerCase();
+        const items = document.querySelectorAll('.barang-item');
+        items.forEach(item => {
+            const nama = item.textContent.toLowerCase();
+            item.style.display = nama.includes(keyword) ? 'block' : 'none';
+        });
+    }
+    function showModal(title, image, price, description) {
+        document.getElementById('modalTitle').textContent = title;
+        document.getElementById('modalImage').src = image;
+        document.getElementById('modalPrice').textContent = price;
+        document.getElementById('modalDesc').textContent = description;
+
+        const waNumber = '62895355310172'; // ganti dengan nomor WA aktif kamu
+        const waMessage = `Halo, saya tertarik dengan ${title} seharga ${price}`;
+        document.getElementById('waLink').href = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
+
+        document.getElementById('modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+        document.getElementById('modal').classList.add('hidden');
+    }
+
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  const form = e.target;
+
+  const response = await fetch(form.action, {
+    method: "POST",
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  });
+
+  if (response.ok) {
+    Swal.fire({
+      icon: 'success',
+      title: 'Berhasil!',
+      text: 'Pesan berhasil dikirim. Terima kasih!',
+    });
+    form.reset();
+  } else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Gagal!',
+      text: 'Terjadi kesalahan. Coba lagi nanti.',
+    });
+  }
+});
+
+   const toggleBtn = document.getElementById("navToggleBtn");
+  const navMenu = document.getElementById("navbarResponsive");
+
+  toggleBtn.addEventListener("click", () => {
+    navMenu.classList.toggle("hidden");
+  });
+
+
+</script>
+    </body>
+    </html>
